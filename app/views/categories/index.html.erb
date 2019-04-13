@@ -1,8 +1,15 @@
-<p id="notice"><%= notice %></p>
+<% @categories.each do |category| %>
+  <section class="category">
+    <h3><%= category.name %></h3>
+    <% category.boards.each do |board| %>
+      <section class="board">
+        <h5><%= link_to board.name, board %></h5>
+      </section>
+    <% end %>
+  </section>
+<% end %>
 
-<h1>Categories</h1>
-
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -32,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'New Category', new_category_path %> -->
