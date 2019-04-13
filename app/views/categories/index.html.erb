@@ -9,7 +9,9 @@
           <span><%= link_to board.name, board %></span>
           <span class="pull-right text-secondary">
             <% if board.posts.length == 0 %>
-              <em>This board has no posts.</em>
+              <em>This board has no posts</em>
+            <% else %>
+              <em>Last post <%= time_ago_in_words(board.posts.last.created_at) %> ago</em>
             <% end %>
           </span>
         </li>
