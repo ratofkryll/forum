@@ -1,12 +1,21 @@
 <% @categories.each do |category| %>
-  <section class="category">
-    <h3><%= category.name %></h3>
-    <% category.boards.each do |board| %>
-      <section class="board">
-        <h5><%= link_to board.name, board %></h5>
-      </section>
-    <% end %>
-  </section>
+  <div class="card category">
+    <div class="card-header">
+      <%= category.name %>
+    </div>
+    <ul class="list-group list-group-flush">
+      <% category.boards.each do |board| %>
+        <li class="list-group-item d-flex justify-content-between">
+          <span><%= link_to board.name, board %></span>
+          <span class="pull-right text-secondary">
+            <% if board.posts.length == 0 %>
+              <em>This board has no posts.</em>
+            <% end %>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <!-- <table>
